@@ -11,14 +11,16 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class store {
 
+    //Store altında bulunan 4 tane sorgu için Unirest kullanarak testler gerçekleştirildi.
     @Test
     public void placeOrderPet() throws UnirestException {
         Unirest.setTimeouts(0, 0);
         HttpResponse<String> response = Unirest.post("https://petstore.swagger.io/v2/store/order")
                 .header("Content-Type", "application/json")
-                .body("{\r\n  \"id\": 100,\r\n  \"petId\": 0,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2022-07-29T18:40:49.084Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}")
+                .body("{\r\n  \"id\": 0,\r\n  \"petId\": 0,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2022-07-29T18:40:49.084Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}")
                 .asString();
 
+        //Reponse değerinin 200 olduğu kontrol edildi.
         Assert.assertEquals(200,response.getStatus());
 
     }
@@ -29,6 +31,7 @@ public class store {
                 .header("Content-Type", "application/json")
                 .asString();
 
+        //Reponse değerinin 200 olduğu kontrol edildi.
         Assert.assertEquals(200,response.getStatus());
     }
 
@@ -39,6 +42,7 @@ public class store {
                 .body("")
                 .asString();
 
+        //Reponse değerinin 200 olduğu kontrol edildi.
         Assert.assertEquals(200,response.getStatus());
     }
 
@@ -48,6 +52,7 @@ public class store {
         HttpResponse<String> response = Unirest.get("https://petstore.swagger.io/v2/store/inventory")
                 .asString();
 
+        //Reponse değerinin 200 olduğu kontrol edildi.
         Assert.assertEquals(200,response.getStatus());
     }
 }
