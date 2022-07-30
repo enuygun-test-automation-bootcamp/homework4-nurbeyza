@@ -20,7 +20,7 @@ public class store {
 
     Response response;
     @Test
-    public void verifiySuccuessfullSignupByRestAssured() throws JsonProcessingException {
+    public void placeOrderPet() throws JsonProcessingException {
 
         response = given()
                 .header("Content-Type","application/json")
